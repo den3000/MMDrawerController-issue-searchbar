@@ -19,12 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
-    UINavigationController * nvc = (UINavigationController *) self.window.rootViewController;
-    nvc.navigationBar.translucent = YES;
-    nvc.extendedLayoutIncludesOpaqueBars = NO;
-    [nvc setNavigationBarHidden:YES animated:NO];
-    
-    MMDrawerController * dvc = (MMDrawerController *)nvc.childViewControllers[0];
+    MMDrawerController * dvc = (MMDrawerController *)self.window.rootViewController;
     [dvc setLeftDrawerViewController: [sb instantiateViewControllerWithIdentifier:@"LEFT_CONTROLLER"]];
     [dvc setCenterViewController: [sb instantiateViewControllerWithIdentifier:@"CENTER_CONTROLLER"]];
     [dvc setRightDrawerViewController: [sb instantiateViewControllerWithIdentifier:@"RIGHT_CONTROLLER"]];
@@ -35,7 +30,6 @@
      MMCloseDrawerGestureModeTapCenterView |
      MMCloseDrawerGestureModePanningDrawerView];
     
-    // Override point for customization after application launch.
     return YES;
 }
 
