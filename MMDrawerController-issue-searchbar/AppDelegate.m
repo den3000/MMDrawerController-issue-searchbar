@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "MMDrawerController.h"
 
 @interface AppDelegate ()
 
@@ -16,6 +17,24 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    UINavigationController * nvc = (UINavigationController *) self.window.rootViewController;
+    nvc.navigationBar.translucent = YES;
+    nvc.extendedLayoutIncludesOpaqueBars = NO;
+    [nvc setNavigationBarHidden:YES animated:NO];
+    
+    MMDrawerController * dvc = (MMDrawerController *)nvc.childViewControllers[0];
+    [dvc setLeftDrawerViewController: [sb instantiateViewControllerWithIdentifier:@"LEFT_CONTROLLER"]];
+    [dvc setCenterViewController: [sb instantiateViewControllerWithIdentifier:@"CENTER_CONTROLLER"]];
+    [dvc setRightDrawerViewController: [sb instantiateViewControllerWithIdentifier:@"RIGHT_CONTROLLER"]];
+    
+    dvc.shouldStretchDrawer = NO;
+    [dvc setOpenDrawerGestureModeMask: MMOpenDrawerGestureModePanningCenterView];
+    [dvc setCloseDrawerGestureModeMask: MMCloseDrawerGestureModePanningCenterView |
+     MMCloseDrawerGestureModeTapCenterView |
+     MMCloseDrawerGestureModePanningDrawerView];
+    
     // Override point for customization after application launch.
     return YES;
 }
