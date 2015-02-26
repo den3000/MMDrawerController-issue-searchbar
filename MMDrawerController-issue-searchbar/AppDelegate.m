@@ -20,8 +20,6 @@
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     UINavigationController * nvc = (UINavigationController *) self.window.rootViewController;
-    nvc.navigationBar.translucent = YES;
-    nvc.extendedLayoutIncludesOpaqueBars = NO;
     [nvc setNavigationBarHidden:YES animated:NO];
     
     MMDrawerController * dvc = (MMDrawerController *)nvc.childViewControllers[0];
