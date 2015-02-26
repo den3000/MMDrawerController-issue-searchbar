@@ -17,7 +17,7 @@ MMDC is the root of your view controllers hierachy. Then for each sub controller
 
 The following hierarchy used here: UINavigationController -> MMDC, then for each sub controller (left, center, right) used a pair UINavigationController + UITableViewController with old UISearchDisplayController. This approach gives as an unwilling shadows at the navigation bar of center view controller. Example_03_fix branch contains possible solution:
 
-'''objc
+```objc
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -25,7 +25,7 @@ The following hierarchy used here: UINavigationController -> MMDC, then for each
     self.navigationController.navigationBar.translucent = NO;
     self.extendedLayoutIncludesOpaqueBars = YES;
 }
-'''
+```
 
 for each of your UITableViewControllers.
 
