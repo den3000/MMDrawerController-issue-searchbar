@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UITableViewController
+<UISearchResultsUpdating, UISearchControllerDelegate, UISearchBarDelegate>{
+    UISearchController * mSearchController;
+}
 
 
 @end
