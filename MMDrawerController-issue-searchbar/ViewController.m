@@ -35,8 +35,7 @@
     mSearchController.searchBar.delegate = self; // so we can monitor text changes + others
     
     self.tableView.tableHeaderView = mSearchController.searchBar;
-//   	self.definesPresentationContext = YES;  // know where you want UISearchController to be displayed
-    mSearchController.definesPresentationContext = YES;
+   	self.definesPresentationContext = YES;  // know where you want UISearchController to be displayed
 }
 
 #pragma mark - UISearchControllerDelegate
