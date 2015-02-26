@@ -23,9 +23,29 @@
     [nvc setNavigationBarHidden:YES animated:NO];
     
     MMDrawerController * dvc = (MMDrawerController *)nvc.childViewControllers[0];
-    [dvc setLeftDrawerViewController: [sb instantiateViewControllerWithIdentifier:@"LEFT_CONTROLLER"]];
-    [dvc setCenterViewController: [sb instantiateViewControllerWithIdentifier:@"CENTER_CONTROLLER"]];
-    [dvc setRightDrawerViewController: [sb instantiateViewControllerWithIdentifier:@"RIGHT_CONTROLLER"]];
+    UINavigationController * nvc1 = (UINavigationController *)[sb instantiateViewControllerWithIdentifier:@"LEFT_CONTROLLER"];
+        // fix for shadows and animation flawlessity
+        nvc1.navigationBar.translucent = NO;
+        ((UIViewController *)nvc1.childViewControllers[0]).extendedLayoutIncludesOpaqueBars = YES;
+        // right place to define search controller presentation context
+        ((UIViewController *)nvc1.childViewControllers[0]).definesPresentationContext = YES;
+    [dvc setLeftDrawerViewController: nvc1];
+    
+    UINavigationController * nvc2 = (UINavigationController *)[sb instantiateViewControllerWithIdentifier:@"CENTER_CONTROLLER"];
+        // fix for shadows and animation flawlessity
+        nvc2.navigationBar.translucent = NO;
+        ((UIViewController *)nvc2.childViewControllers[0]).extendedLayoutIncludesOpaqueBars = YES;
+        // right place to define search controller presentation context
+        ((UIViewController *)nvc2.childViewControllers[0]).definesPresentationContext = YES;
+    [dvc setCenterViewController: nvc2];
+    
+    UINavigationController * nvc3 = (UINavigationController *)[sb instantiateViewControllerWithIdentifier:@"RIGHT_CONTROLLER"];
+        // fix for shadows and animation flawlessity
+        nvc3.navigationBar.translucent = NO;
+        ((UIViewController *)nvc3.childViewControllers[0]).extendedLayoutIncludesOpaqueBars = YES;
+        // right place to define search controller presentation context
+        ((UIViewController *)nvc3.childViewControllers[0]).definesPresentationContext = YES;
+    [dvc setRightDrawerViewController: nvc3];
     
     dvc.shouldStretchDrawer = NO;
     [dvc setOpenDrawerGestureModeMask: MMOpenDrawerGestureModePanningCenterView];

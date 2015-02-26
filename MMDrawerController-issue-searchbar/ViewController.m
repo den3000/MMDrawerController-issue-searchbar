@@ -18,8 +18,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 
-    self.navigationController.navigationBar.translucent = NO;
-    self.extendedLayoutIncludesOpaqueBars = YES;
+    // as all this VC embeded into another via container view
+    // this fix wouldn't help anymore
+//    self.navigationController.navigationBar.translucent = NO;
+//    self.extendedLayoutIncludesOpaqueBars = YES;
     
     [self initSearch];
 }
@@ -38,7 +40,10 @@
     mSearchController.searchBar.delegate = self; // so we can monitor text changes + others
     
     self.tableView.tableHeaderView = mSearchController.searchBar;
-   	self.definesPresentationContext = YES;  // know where you want UISearchController to be displayed
+    
+    // as all this VC embeded into another via caontainer view
+    // this will cause strange incorrect behaviour
+//   	self.definesPresentationContext = YES;  // know where you want UISearchController to be displayed
 }
 
 #pragma mark - UISearchControllerDelegate
