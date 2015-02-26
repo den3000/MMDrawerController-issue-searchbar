@@ -19,6 +19,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     self.navigationController.navigationBar.translucent = NO;
+    self.extendedLayoutIncludesOpaqueBars = YES;
 }
 
 - (void)didReceiveMemoryWarning {
