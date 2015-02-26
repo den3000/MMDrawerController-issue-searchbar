@@ -46,7 +46,7 @@
     [dvc setRightDrawerViewController: nvc3];
 
     dvc.showsStatusBarBackgroundView = YES;
-    dvc.statusBarViewBackgroundColor = [UIColor colorWithRed:0.8f green:0.8f blue:0.8f alpha:1];
+    dvc.statusBarViewBackgroundColor = [UIColor colorWithRed:0.788f green:0.788f blue:0.807f alpha:1];
     dvc.shouldStretchDrawer = NO;
     [dvc setOpenDrawerGestureModeMask: MMOpenDrawerGestureModePanningCenterView];
     [dvc setCloseDrawerGestureModeMask: MMCloseDrawerGestureModePanningCenterView |
